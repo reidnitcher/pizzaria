@@ -1,0 +1,47 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<h3><p>Pizza: {{ pizza }}</p></h3>
+{% if pizza.name == 'Hawaiian' %}
+<img src="https://www.thespruceeats.com/thmb/c57iCi93U2l6xHJ1Af4kz6OLo38=/3661x3661/smart/filters:no_upscale()/hawaiian-pizza-4691857-hero-01-1a8f6764c70e4113bbf31bd1a73aca2e.jpg" width='200' height='200'>
+{% elif pizza.name == 'Meat Lovers' %}
+<img src="https://www.thespruceeats.com/thmb/P35kji9UfT9JndhurFbPRb1Tuyw=/2998x1999/filters:fill(auto,1)/aqIMG_4568fhor-0b89dc5c8c494ee9828ed29805791c5a.jpg" width='260' height='170'>
+{% elif pizza.name == 'Pepperoni' %}
+<img src="https://www.tasteatlas.com/images/dishes/b05a0af72ad845f3a6abe16143d7853a.jpg" width='350' height='150'>
+{% elif pizza.name == 'Supreme' %}
+<img src="https://restaurantclicks.com/wp-content/uploads/2021/09/tasty-supreme-pizza-with-olives-peppers-onions-and-sausage.jpg" width='200' height='230'>
+{% elif pizza.name == 'Caprese' %}
+<img src="https://www.twopeasandtheirpod.com/wp-content/uploads/2014/09/Caprese-Pizza-6.jpg" width='200' height='230'>
+{% endif %}
+
+<h4><p>Toppings:</p></h4>
+<ul>
+    {% for t in toppings %}
+
+    <li>
+        <p>{{ t.name|linebreaks }}</p>
+    </li>
+
+    {% empty %}
+    <li>There are no toppings for this pizza.</li>
+    {% endfor %}
+</ul>
+
+<h4><p>Comments:</p></h4>
+<ul>
+    {% for c in comments %}
+
+    <li>
+        <p>{{ c.text|linebreaks }}</p>
+    </li>
+
+    {% empty %}
+    <li>There are no comments for this pizza.</li>
+    {% endfor %}
+</ul>
+<p>
+    <a href="{% url 'pizzas:new_comment' pizza.id %}">Add a new comment</a>
+</p>
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "pizzas/base.html" %}
+
+{% block page_header %}
+
+<img class="mx-auto d-block" src="https://media.nbcnewyork.com/2022/02/pexels-eneida-nieves-905847.jpg?quality=85&strip=all&resize=1200%2C675" width='500' height='200'>
+<div class="jumbotron">
+    <h1 class="display-3">Reid's Pizza, Ready For You!</h1>
+    <p class="lead">Pizzeria shows you a list of our available pizzas, lists the toppings on each pizza, and allows visitors
+        to post comments about any particular pizza.</p>
+    <a class="btn btn-lg btn-primary" href="{% url 'pizzas:pizzas' %}" role="button">View Our Menu &raquo;</a>
+</div>
+<img class="mx-auto d-block" src="https://www.945bayfm.com/wp-content/uploads/2020/02/pizzas-640x400.jpg" width='1000' height='500'>
+
+{% endblock page_header %}
